@@ -12,10 +12,10 @@ def BuildLikelyArtists(rankliKelyArtists):
     global day, day2
 
     with row[2]:
-        day = st.date_input('Data Inicio:',value=date.today() - timedelta(days=1),format='DD/MM/YYYY',key='day')
+        day = st.date_input('Data Inicio:',value=date.today(),format='DD/MM/YYYY',key='day')
     
     with row[3]:
-        day2 = st.date_input('Data Fim:',value=date.today() - timedelta(days=1),format='DD/MM/YYYY',key='day2')
+        day2 = st.date_input('Data Fim:',value=date.today(),format='DD/MM/YYYY',key='day2')
 
     
     rankliKelyArtists = rank_likely_artists(day, day2, filters='', id_group='')
@@ -46,8 +46,8 @@ def BuildLikelyArtists(rankliKelyArtists):
 class LikelyArtists(Page):
     def render(self):
         self.data = {}
-        day = date.today() - timedelta(days=1)
-        day2 = date.today() - timedelta(days=1)
+        day = date.today() 
+        day2 = date.today()
         self.data['rankliKelyArtists'] = rank_likely_artists(day, day2, filters='', id_group='')
         
         BuildLikelyArtists(self.data['rankliKelyArtists'])
