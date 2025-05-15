@@ -31,12 +31,11 @@ def BuildLikelyArtists(rankliKelyArtists):
     rankliKelyArtists = rankliKelyArtists[rankliKelyArtists['Estabelecimento'] == companie]
     id_group = rankliKelyArtists['ID GRUPO'].unique()
     id_companie = rankliKelyArtists['ID Estabelecimento'].unique()
-
     filters = f"AND O.FK_CONTRATANTE = '{id_companie[0]}'"
 
     rankliKelyArtists = rank_likely_artists(day, day2, filters, id_group[0])
     
-    rankliKelyArtists = rankliKelyArtists.drop(columns=['ID Estabelecimento', 'Estabelecimento', 'ID GRUPO', 'ID Artista', 'RN'])
+    rankliKelyArtists = rankliKelyArtists.drop(columns=['ID Estabelecimento', 'Estabelecimento', 'ID GRUPO', 'ID Artista', 'RN', 'PONTUACAO'])
     function_format_number_columns
     filtered_copy, count = component_plotDataframe(rankliKelyArtists, 'Artistas Mais Provaveis')
     function_copy_dataframe_as_tsv(filtered_copy)
