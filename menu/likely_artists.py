@@ -36,9 +36,14 @@ def BuildLikelyArtists(rankliKelyArtists):
     rankliKelyArtists = rank_likely_artists(day, day2, filters, id_group[0])
     
     rankliKelyArtists = rankliKelyArtists.drop(columns=['ID Estabelecimento', 'Estabelecimento', 'ID GRUPO', 'ID Artista', 'RN', 'PONTUACAO'])
-    function_format_number_columns
-    filtered_copy, count = component_plotDataframe(rankliKelyArtists, 'Artistas Mais Provaveis')
-    function_copy_dataframe_as_tsv(filtered_copy)
+
+    if len(rankliKelyArtists) > 0:
+        filtered_copy, count = component_plotDataframe(rankliKelyArtists, 'Artistas Mais Provaveis')
+        function_box_lenDf(count, rankliKelyArtists, y=0, x=540, box_id='box1', item='Artistas')
+        function_copy_dataframe_as_tsv(filtered_copy)
+    
+    else:
+        st.error("Nenhuma Oportunidade Encontrada")
 
     st.markdown("---")
 

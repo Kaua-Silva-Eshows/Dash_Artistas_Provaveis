@@ -38,7 +38,7 @@ if __name__ == "__main__":
     if 'jwt_token' not in st.session_state:
         st.switch_page("main.py")
     
-    st.set_page_config(page_title="Home | ",page_icon="./assets/imgs/eshows-logo100x100.png", layout="wide")
+    st.set_page_config(page_title="Home | Artistas Prováveis",page_icon="./assets/imgs/eshows-logo100x100.png", layout="wide")
 
     component_hide_sidebar()
     component_fix_tab_echarts()
