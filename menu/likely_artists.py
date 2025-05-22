@@ -41,7 +41,7 @@ def BuildLikelyArtists(rankliKelyArtists):
         else:
             rankliKelyArtists = rank_likely_artists(day, day2, filters, id_group[0])
         
-        rankliKelyArtists = rankliKelyArtists.drop(columns=['ID Estabelecimento', 'Estabelecimento', 'ID GRUPO', 'RN'])
+        rankliKelyArtists = rankliKelyArtists.drop(columns=['ID Estabelecimento', 'Estabelecimento', 'ID GRUPO', 'RN', 'PONTUACAO'])
 
         if len(rankliKelyArtists) > 0:
             filtered_copy, count = component_plotDataframe(rankliKelyArtists, 'Artistas Mais Provaveis')
