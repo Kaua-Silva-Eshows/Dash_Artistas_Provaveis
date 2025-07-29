@@ -10,3 +10,4 @@ workalendar == 17.0.0
 openpyxl == 3.1.5
 streamlit_echarts == 0.4.0
 matplotlib == 3.9.1
+st_theme==1.2.3
