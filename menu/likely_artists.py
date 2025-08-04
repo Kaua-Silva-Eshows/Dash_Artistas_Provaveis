@@ -15,12 +15,16 @@ def BuildLikelyArtists(rankliKelyArtists):
     
     with row[3]:
         day2 = st.date_input('Data Fim:',value=date.today(),format='DD/MM/YYYY',key='day2')
+    
+    rankliKelyArtists = rank_likely_artists(day, day2, filters='', id_group='')
 
     if day2 < day:        
         st.warning("Data Inicio deve ser menor que Data Fim")
-
+    
+    elif rankliKelyArtists.empty:
+        st.warning("Nenhuma Oportunidade Encontrada")
+    
     else:
-        rankliKelyArtists = rank_likely_artists(day, day2, filters='', id_group='')
         
         row1 = st.columns(3)
         with row1[1]:
